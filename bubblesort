@@ -1,0 +1,64 @@
+print()
+print('===============================================')
+print('              PROGRAM BUBBLE SORT              ')
+print('===============================================')
+def bubble_sort():
+    num_list=[]
+    list_cnt=input("Berapa Banyak Data Yang Ingin Diurutkan : ")
+    print()
+    for i in range(int(list_cnt)):
+        ### need to convert the value returned by input()
+        num_list.append(input("Masukkan data ke-" +str(i+1)+": "))
+        ##here we are using append method of list
+
+    print()
+    print("Data Awal Yang Diinput Adalah : ")
+    print(num_list)
+    print()
+
+    print('Banyaknya Data : ',len(num_list))
+    num_list=list(map(int,num_list))
+    max_index=len(num_list)-1 ## because list begins with 0
+    print("Maksimal Index Dari Nilai Yang Diinput : ",max_index)
+    print()
+    print("Proses Bubble sort Ascending : ")
+    no=0
+    for i in range(len(num_list)-1):
+        j=0
+        swapped=False
+        for j in range(0, len(num_list)-1-i):
+                    if num_list[j] > num_list[j+1]: 
+                        tmpt = num_list[j]
+                        num_list[j] = num_list[j+1]
+                        num_list[j+1] = tmpt
+        no += 1
+        print(no, num_list)
+    print()
+    print("Data Seteleh Diurutkan: ")
+    print(num_list)
+
+    print()
+    print("Proses Bubble sort Descending: ")
+    no=0
+    for i in range(len(num_list)-1):
+        j=0
+        swapped=False
+        for j in range(0, len(num_list)-1-i):
+                    if num_list[j] < num_list[j+1]: 
+                        tmpt = num_list[j]
+                        num_list[j] = num_list[j+1]
+                        num_list[j+1] = tmpt
+        no += 1
+        print(no, num_list)
+    print()
+    print("Nilai Seteleh Diurutksn : ")
+    print(num_list)
+
+    x=(int(input("\nApakah ingin mengulangi program? (1.YA/2.TIDAK) : ")))
+    while x==1:
+        bubble_sort()
+        x=(int(input("Apakah ingin mengulangi program? (1.YA/2.TIDAK) : ")))
+    else:
+        print("Terima kasih")
+
+bubble_sort()
