@@ -1,0 +1,67 @@
+#Input Matriks A
+print('Mencari Invers Matriks A (3X3)')
+print()
+print('===================================================================')
+print('Input Elemen - Elemen Matriks A')
+m=int(input('Baris Matriks A : '))
+n=int(input('Kolom Matriks A : '))
+A=[]
+for i in range (m) :
+    A.append([])
+print(f'List Awal = ',A)
+print()
+for i in range (0,m) :
+    for j in range (0,n):
+        print('Baris', i+1, 'Kolom', j+1)
+        A[i].append(int(input('Elemen : ')))
+print()
+print('Matriks A :')
+for i in range (0,m):
+    for j in range (0,n):
+        print (A[i][j], end=' ')
+    print()
+print()
+print(f'List Matriks A = {A}')
+print()
+#Determinan Matriks A
+print("Mencari Determinan Matriks A dengan Metode Sarrus :")
+print(A[0][0],A[0][1],A[0][2],"|",A[0][0],A[0][1])
+print(A[1][0],A[1][1],A[1][2],"|",A[1][0],A[1][1])
+print(A[2][0],A[2][1],A[2][2],"|",A[2][0],A[2][1])
+#Menghitung Determinan Metode Sarrus
+B1=((A[0][0])*(A[1][1])*(A[2][2]))
+B2=((A[0][1])*(A[1][2])*(A[2][0]))
+B3=((A[0][2])*(A[1][0])*(A[2][1]))
+B4=((A[2][0])*(A[1][1])*(A[0][2]))
+B5=((A[2][1])*(A[1][2])*(A[0][0]))
+B6=((A[2][2])*(A[1][0])*(A[0][1]))
+det=((B1)+(B2)+(B3))-((B4)+(B5)+(B6))
+print()
+if det == 0 :
+    print('Matriks A Tidak Memiliki Invers Karena Determinan Matriks A = ', det)
+    print()
+else :
+    print('Determinan Matriks A = ', det)
+
+#Adjoin Matriks A
+    A[0][0], A[0][1], A[0][2] = A[0][0], A[1][0], A[2][0]
+    A[0][1], A[1][1], A[1][2] = A[0][1], A[1][1], A[2][1]
+    A[2][0], A[2][1], A[2][2] = A[0][2], A[1][2], A[2][2]
+    print()
+    print('Adjoin Matriks A :')
+    for i in range (0,m) :
+           for j in range (0,n) :
+                  print(A[i][j], end=' ')
+           print()
+    print()
+#Mencari Invers Matriks A
+    print('Invers Matriks A :')
+    for i in range (0,m) :
+           for j in range (0,n) :
+                  A[i][j]=(1/det)*A[i][j]
+    for i in range (0,m) :
+           for j in range (0,n) :
+                  print(A[i][j], end='  ')
+           print()
+    print()
+print('===================================================================')
