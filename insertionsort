@@ -1,0 +1,94 @@
+def tukar(data,i,j):
+    #kita akan menukar key dengan data yang dibandingkan.
+    data[i],data[j]=data[j],data[i]
+    
+def InsertionAscending(data):
+    #menentukan key. Kita mulai dari indeks ke 2 sampai terakhir.
+    for step in range (1,len(data)):
+        key = data[step]
+        #Setiap key akan dibandingkan dengan elemen-elemen data sebelum key sehingga key akan ditempatkan sesuai dengan urutan datanya menaik.
+        j = step - 1
+        while j>=0 and key < data[j]:
+            tukar(data,j+1,j)
+            j = j-1
+        print(data)
+
+def InsertionDescending(data):
+    #menentukan key. Kita mulai dari indeks ke 2 sampai terakhir.
+    for step in range (1,len(data)):
+        key = data[step]
+        #Setiap key akan dibandingkan dengan elemen-elemen data sebelum key sehingga key akan ditempatkan sesuai dengan urutan datanya menurun.
+        j = step - 1
+        while j>=0 and key > data[j]:
+            tukar(data,j+1,j)
+            j = j-1
+        print(data)
+
+
+r=1
+while(r==1):
+    print("===========================================================================")
+    print(" ")
+    print("                          ~ INSERTION SORT ~                               ")
+    print(" ")
+    #kita input elemen-elemen data yang ingin kita urutkan terlebih dahulu.
+    n = int(input("Banyak data : "))
+    A = []
+    while(len(A)<n):
+        A.append(" ")
+    print(" ")
+    for i in range (len(A)):
+        A[i] = int(input("Data ke "+str(i+1)+" : "))
+    print(" ")
+    #kita membuat ruang C untuk mencari kedua-duanya.
+    C = []
+    while(len(C)<n):
+        C.append(" ")
+    for i in range (len(A)):
+        C[i] = A[i]
+    print ("Data sebelum dilakukan pengurutan : " + str(A))
+    print(" ")
+    B = ["1. Ascending (Naik)","2. Descending (Turun)", "3. Kedua-duanya"]
+    for i in range (len(B)):
+        print (B[i])
+    print(" ")
+    pilih = int(input("Pilih jenis pengurutan yang yang ingin dilakukan (1/2/3)? "))
+    print(" ")
+    #apabila memilih satu, kita memanggil fungsi InsertionAscending sehingga data akan diurutkan secara menaik.
+    if (pilih == 1):
+        print ("--Proses Insertion Sort--")
+        InsertionAscending(A)
+        print(" ")
+        print("Hasil Akhir : ", A)
+        print(" ")
+    #apabila memilih dua, kita memanggil fungsi InsertionDescending sehingga data akan diurutkan secara menurun.
+    elif (pilih == 2):
+        print("--Proses Insertion Sort--")
+        InsertionDescending(A)
+        print(" ")
+        print("Hasil Akhir : ", A)
+        print(" ")
+    #apabila memilih satu, kita memanggil fungsi InsertionAscending dan InsertionDescending sehingga data akan diurutkan secara menaik dan menurun.
+    elif (pilih == 3):
+        print ("1. Ascending (Naik)")
+        print("--Proses Insertion Sort--")
+        InsertionAscending(A)
+        print(" ")
+        print("Hasil Akhir Ascending (Naik) : ", A)
+        print(" ")
+        print(" ")
+        print ("2. Descending (Turun)")
+        print("--Proses Insertion Sort--")
+        InsertionDescending(C)
+        print(" ")
+        print("Hasil Akhir Descending (Turun) : ", C)
+        print(" ")
+    else:
+        print("Tidak ada opsi tersebut.")
+        print(" ")
+    print(" ")
+    r = int(input("Apakah ingin mencoba lagi? [1]Ya [Angka Lain]Tidak : "))
+    if (r != 1):
+        print(" ")
+        print("Terima kasih telah menggunakan program kami :)")
+        
